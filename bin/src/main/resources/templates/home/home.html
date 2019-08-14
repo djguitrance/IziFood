@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>IziFood</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link href="css/estilo.css" rel="stylesheet" />
+</head>
+<body>
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	<div id="body">
+		<div class="container principal">
+
+
+			<div class="row">
+				<div class="teste col-md-6">
+					<input type="text" class="form-control pesquisar" id="mySearch" onkeyup="myFunction()" placeholder="Pesquisar ...">
+					<form method="POST" action="/ingredientes/listar">
+						<div class="form-group" th:each="ingrediente: ${ingredientes}">
+							<ul id="myMenu">
+								<li>
+									<input class="form-check-input" type="checkbox" th:value="${ingrediente.id}" th:id="${ingrediente.nome}"> 
+									<label class="form-check-label" th:for="${ingrediente.nome}" th:text="${ingrediente.nome}"></label>
+								</li>
+							</ul>
+						</div>
+						
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Pesquisar</button>
+			</form>
+			
+		</div>
+	</div>
+
+	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+	<script>
+		function myFunction() {
+			var input, filter, ul, li, a, i;
+			input = document.getElementById("mySearch");
+			filter = input.value.toUpperCase();
+			ul = document.getElementById("myMenu");
+			li = ul.getElementsByTagName("li");
+			for (i = 0; i < li.length; i++) {
+				a = li[i].getElementsByTagName("label")[0];
+				if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					li[i].style.display = "";
+				} else {
+					li[i].style.display = "none";
+				}
+			}
+		}
+	</script>
+</body>
+</html>
