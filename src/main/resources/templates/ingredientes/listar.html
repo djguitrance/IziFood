@@ -10,7 +10,13 @@
 	<div id="body">
 		<div class="container principal">
 
-	<span>Boa</span>
+		<div th:each="ingrediente: ${ingredientes}">
+			<ul>
+				<li> 
+					<label th:text="${ingrediente}"></label>
+				</li>
+			</ul>
+		</div>
 			
 		</div>
 	</div>
