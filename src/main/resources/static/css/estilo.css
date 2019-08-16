@@ -1,38 +1,86 @@
-   html{
-        height: 100%;
-    }
+html {
+	height: 100%;
+}
 
-    body {
-        background-image: url('../img/vegetables_2977888_1280.jpg');
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-attachment: fixed;
-        height: 100%;
-    }
+body {
+	background-image: url('../img/vegetables_2977888_1280.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+	height: 100%;
+}
+
+h1 {
+	font-family: 'Indie Flower', cursive;
+	margin-top: -40px;
+	margin-bottom: -30px;
+}
+
+#body {
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	position: fixed;
+}
+
+.principal {
+	margin-top: 5%;
+}
+
+
+/* ******* NAVBAR ********* */
     
-    #body {
-        width: 100%;
-        height: 100%;
-        max-height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        color: white;
-        position: fixed;
-    }
+.navbar.custom {
+	height: 5%; !
+	important margin: 0 auto;
+}
 
-    .principal{
-        margin-top: 5%;
-    }
-    
-    .teste{
-        padding-top: 1%;
-        border: solid !important;
-        height: 450px;
-        width: 500px;
-        margin-top: 3%;
-        overflow: auto;
-    }
+.searchNav {
+	width: 800px !important
+}
 
-    .pesquisar{
-        margin-bottom: 2%;
-    }
+.logo {
+	margin-left: 20px;
+	margin-right: 50px;
+}
 
+
+/* ******* MENU ********* */
+
+
+.menu{
+	padding-top: 1%;
+	border: 1px solid !important;
+	border-radius: 5px;
+	height: 450px;
+	width: 500px;
+	margin-top: 2%;
+	margin-bottom: 10px;
+	overflow: auto;
+	background-color: rgba(1, 1, 1, 0.8);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {
+	display: none;
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #3b3b3b;
+	-webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	background-color: #666;
+	-webkit-border-radius: 6px;
+}
+
+.pesquisar {
+	margin-bottom: 2%;
+}

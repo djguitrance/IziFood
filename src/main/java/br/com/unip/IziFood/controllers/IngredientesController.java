@@ -16,7 +16,7 @@ public class IngredientesController {
 	public ModelAndView listar(@RequestParam List<Long> ingrediente) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("ingredientes", ingrediente);
-		mv.setViewName("ingredientes/listar");
+		mv.setViewName("receitas/listar");
 		return mv;
 	}
 }

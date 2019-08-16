@@ -4,15 +4,18 @@
 <title>IziFood</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link href="css/estilo.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div id="body">
 		<div class="container principal">
 
-
 			<div class="row">
-				<div class="teste col-md-6">
+				<h1>Quais ingredientes você tem à disposição?</h1>
+			</div>
+			<div class="row">
+				<div class="menu col-md-6">
 					<input type="text" class="form-control pesquisar" id="mySearch" onkeyup="myFunction()" placeholder="Pesquisar ...">
 					<form method="POST" action="/ingredientes/listar">
 						<div class="form-group" th:each="ingrediente: ${ingredientes}">
@@ -34,23 +37,5 @@
 
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-
-	<script>
-		function myFunction() {
-			var input, filter, ul, li, a, i;
-			input = document.getElementById("mySearch");
-			filter = input.value.toUpperCase();
-			ul = document.getElementById("myMenu");
-			li = ul.getElementsByTagName("li");
-			for (i = 0; i < li.length; i++) {
-				a = li[i].getElementsByTagName("label")[0];
-				if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-					li[i].style.display = "";
-				} else {
-					li[i].style.display = "none";
-				}
-			}
-		}
-	</script>
 </body>
 </html>

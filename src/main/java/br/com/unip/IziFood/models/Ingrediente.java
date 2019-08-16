@@ -11,17 +11,16 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "ingredientes")
+@Table(name = "ing_ingredientes")
 public class Ingrediente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "ing_id")
 	private Long id;
 	
 	@NotNull(message = "O nome é obrigatório")
-	@Length(max = 50, min = 3, message = "O nome precisa conter entre 3 a 50 caracteres!")
-	@Column(name = "nome")
+	@Column(name = "ing_nome")
 	private String nome;
 
 	public Long getId() {
