@@ -35,6 +35,20 @@ public class Ingrediente {
 		this.nome = nome;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		Ingrediente ingrediente = (Ingrediente) obj;
+		if (ingrediente.getNome() == this.nome) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return (this.nome);
+	}
 	
 	
 }

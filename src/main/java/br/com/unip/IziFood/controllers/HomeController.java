@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.unip.IziFood.models.Ingrediente;
-import br.com.unip.IziFood.repositories.RepositorieIngrediente;
+import br.com.unip.IziFood.repositories.RepositoryIngrediente;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private RepositorieIngrediente repIngrediente;
+	private RepositoryIngrediente repIngrediente;
 
 	@GetMapping("/")
 	public ModelAndView home() {

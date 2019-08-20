@@ -10,14 +10,19 @@
 	<div id="body">
 		<div class="container principal">
 
-		<div th:each="ingrediente: ${ingredientes}">
-			<ul>
-				<li> 
-					<label th:text="${ingrediente}"></label>
-				</li>
-			</ul>
-		</div>
-			
+			<div th:each="receita: ${receitas}">
+				<div class="row">
+					<div class="card" style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title" th:text="receita.nome"></h5>
+							<p class="card-text" th:text="receita.preparo"></p>
+<!-- 							<a href="#" class="btn btn-primary">Visitar</a> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
 	</div>
 
