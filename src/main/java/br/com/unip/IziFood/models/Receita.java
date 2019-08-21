@@ -29,8 +29,8 @@ public class Receita {
 	
 	@ManyToMany
 	@JoinTable(name = "rec_receitas_has_ing_ingredientes",
-				joinColumns = @JoinColumn(name = "rec_id"),
-				inverseJoinColumns = @JoinColumn(name = "ing_id"))
+				joinColumns = @JoinColumn(name = "rec_receitas_rec_id"),
+				inverseJoinColumns = @JoinColumn(name = "ing_ingredientes_ing_id"))
 	private List<Ingrediente> ingredientes;
 
 	public String getNome() {

@@ -16,6 +16,7 @@ public class HomeController {
 	@Autowired
 	private RepositoryIngrediente repIngrediente;
 
+	//Página inicial - carrega a lista de ingredientes.
 	@GetMapping("/")
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();

@@ -9,6 +9,6 @@ import br.com.unip.IziFood.models.Receita;
 
 public interface RepositoryReceita extends JpaRepository<Receita, Long> {
 
-	//List<Receita> findAllByIngrediente_Id(List<Long> ingrediente);
+	List<Receita> findAllByIngredientes(List<Ingrediente> ingrediente);
 
 }

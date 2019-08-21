@@ -84,3 +84,10 @@ h1 {
 .pesquisar {
 	margin-bottom: 2%;
 }
+
+/* ************** Receitas ***************** */
+
+.card-style{
+	color: black !important;
+	margin-left: 15px;
+}
