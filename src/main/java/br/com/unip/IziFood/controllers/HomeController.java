@@ -20,7 +20,7 @@ public class HomeController {
 	@GetMapping("/")
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
-		List<Ingrediente> ingredientes = repIngrediente.findAll();
+		List<Ingrediente> ingredientes = repIngrediente.findByOrderByNomeAsc();
 		mv.addObject("ingredientes", ingredientes);
 		mv.setViewName("home/home");
 		return mv;

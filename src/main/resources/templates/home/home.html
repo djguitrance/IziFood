@@ -16,10 +16,10 @@
 			</div>
 			<div class="row">
 				<div class="menu col-md-6">
-					<input type="text" class="form-control pesquisar" id="mySearch" onkeyup="myFunction()" placeholder="Pesquisar ...">
+					<input type="text" id="myInput" class="form-control pesquisar">
 					<form method="POST" action="/receitas/listar">
 						<div class="form-group" th:each="ingrediente: ${ingredientes}">
-							<ul id="myMenu">
+							<ul id="myList">
 								<li>
 									<input class="form-check-input" type="checkbox" name="IdIngredientes" th:value="${ingrediente.id}" th:id="${ingrediente.nome}"> 
 									<label class="form-check-label" th:for="${ingrediente.nome}" th:text="${ingrediente.nome}"></label>
@@ -29,7 +29,7 @@
 						
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Pesquisar</button>
+			<button type="submit" class="btn btn-primary" id="aplica" onclick="checar()" disabled>Pesquisar</button>
 			</form>
 			
 		</div>
@@ -37,5 +37,31 @@
 
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	
+	<script>
+	var checa = document.getElementsByName("IdIngredientes");
+	var numElementos = checa.length;
+	var bt = document.getElementById("aplica");
+	for(var x=0; x<numElementos; x++){
+	   checa[x].onclick = function(){
+	      // "input[name='toggle']:checked" conta os checkbox checados
+	      var cont = document.querySelectorAll("input[name='IdIngredientes']:checked").length;
+	      // ternário que verifica se há algum checado.
+	      // se não há, retorna 0 (false), logo desabilita o botão
+	      bt.disabled = cont ? false : true;
+	   }
+	}
+	
+	
+	
+	$(document).ready(function(){
+		  $("#myInput").on("keyup", function() {
+		    var value = $(this).val().toLowerCase();
+		    $("#myList li").filter(function() {
+		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		    });
+		  });
+		});
+	</script>
 </body>
 </html>
