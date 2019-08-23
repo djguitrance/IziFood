@@ -4,34 +4,63 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rec_receitas")
+@Table(name = "receita")
 public class Receita {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "rec_id")
+	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "rec_nome")
+	@Column(name = "nome")
 	private String nome;
 	
-	@Column(name = "rec_preparo")
+	@Column(name = "preparo")
 	private String preparo;
 	
 	@ManyToMany
-	@JoinTable(name = "rec_receitas_has_ing_ingredientes",
-				joinColumns = @JoinColumn(name = "rec_receitas_rec_id"),
-				inverseJoinColumns = @JoinColumn(name = "ing_ingredientes_ing_id"))
+	@JoinTable(name = "receita_has_ingrediente",
+				joinColumns = @JoinColumn(name = "receita_id"),
+				inverseJoinColumns = @JoinColumn(name = "ingrediente_id"))
 	private List<Ingrediente> ingredientes;
+	
+	@Column(name = "imagem", nullable = true)
+	private String imagem;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="usuario_id")
+	private Usuario usuario;
+	
+	@OneToMany(mappedBy = "receita")
+	private List<Comentario> comentario;
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public String getNome() {
 		return nome;

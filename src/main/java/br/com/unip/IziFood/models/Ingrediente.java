@@ -11,17 +11,19 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "ing_ingredientes")
+@Table(name = "ingrediente")
 public class Ingrediente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ing_id")
+	@Column(name = "id")
 	private Long id;
 	
-	@NotNull(message = "O nome é obrigatório")
-	@Column(name = "ing_nome")
+	@Column(name = "nome")
 	private String nome;
+	
+	@Column(name = "caloria")
+	private Integer calorias;
 
 	public Long getId() {
 		return id;
