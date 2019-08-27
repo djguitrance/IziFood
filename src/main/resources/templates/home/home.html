@@ -16,7 +16,7 @@
 			</div>
 			<div class="row">
 				<div class="menu col-md-6">
-					<input type="text" id="myInput" class="form-control pesquisar">
+					<input type="text" id="myInput" class="form-control pesquisar" placeholder="Pesquisar ..">
 					<form method="POST" action="/receitas/listar">
 						<div class="form-group" th:each="ingrediente: ${ingredientes}">
 							<ul id="myList">

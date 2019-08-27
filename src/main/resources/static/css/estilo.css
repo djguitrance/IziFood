@@ -43,6 +43,26 @@ h1 {
     margin: 0 auto; /* Added */
     float: none; /* Added */
 }
+
+/* ******* Registro ********* */
+
+.divRegist{
+	width: 600px;
+	height: 500px;
+	margin: 0 auto; /* Added */
+    float: none; /* Added */
+	margin-top:50px;
+    
+}
+
+.validation-message{
+	color:red;
+}
+
+.tituloRegist{
+	text-align:center;
+}
+
 /* ******* NAVBAR ********* */
     
 .navbar.custom {

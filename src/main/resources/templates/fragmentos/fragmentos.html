@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http:/www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -10,12 +10,17 @@
 	<!-- cabeçalho  -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom"
 		th:fragment="cabecalho">
-		<img src="../img/transp_IziFood6.png" class="navbar-brand logo"/>
+		<a href="/home"><img src="../img/transp_IziFood6.png" class="navbar-brand logo"/></a>
 		<form class="form-inline">
 			<input class="form-control mr-sm-2 searchNav" type="search" placeholder="Pesquisar">
 			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
 		</form>
-		<div class="divlogin"><a href="/login">Entre </a> | <a href="#"> Cadastre-se</a> </div>
+		<div th:if="${session.isEmpty()}">
+			<div class="divlogin"><a href="/login">Entre </a> | <a href="/registration"> Cadastre-se</a> </div>
+		</div>
+		<div th:unless="${session.isEmpty()}">
+			<div class="divlogin"><a href="/logout">Sair </a></div>
+		</div>
 	</nav>
 
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>

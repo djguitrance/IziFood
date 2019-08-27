@@ -25,4 +25,9 @@ public class HomeController {
 		mv.setViewName("home/home");
 		return mv;
 	}
+	
+	@GetMapping("/home")
+	public String home2() {
+		return "redirect:/";
+	}
 }

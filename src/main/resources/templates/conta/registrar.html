@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>IziFood</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link href="css/estilo.css" rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
+	rel="stylesheet">
+</head>
+<body>
+	<div id="body">
+		<div class="container principal">
+
+			<h1 class="tituloRegist">Cadastro de novo usuário:</h1>
+			
+			<div class="divRegist">
+
+				<form class="form-horizontal formRegist" action="/registration" method="POST" th:object="${usuario}">
+
+					<div class="form-group">
+						<label for="inputNome">Nome</label>
+						<input type="text" class="form-control" id="inputNome" placeholder="Nome" th:field="*{nome}">
+						<label th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="validation-message"></label>
+					</div>
+					
+					<div class="form-group">
+						<label for="inputSobrenome">Sobrenome</label>
+						<input type="text" class="form-control" id="inputSobrenome" placeholder="Sobrenome"  th:field="*{sobrenome}">
+						<label th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}" class="validation-message"></label>
+					</div>
+					
+					<div class="form-group">
+						<label for="inputEmail">Email</label>
+						<input type="text" class="form-control" id="inputEmail" placeholder="Email"  th:field="*{email}">
+						<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="validation-message"></label>
+					</div>
+					
+					<div class="form-group">
+						<label for="inputPassword3">Password</label>
+						<input type="password" class="form-control" id="inputPassword3" placeholder="Password" th:field="*{senha}">
+						<label th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}" class="validation-message"></label>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Salvar</button>
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- 			<div class="row"> -->
+
+					<!-- 				<div class="form-group col-md-4"> -->
+					<!-- 					<label>Nome:</label>  -->
+					<!-- 					<input type="text" class="form-control" th:field="*{nome}"> -->
+					<!-- 					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}"> -->
+					<!-- 						<label th:errors="*{nome}" class="validation-message"></label> -->
+					<!-- 					</div> -->
+					<!-- 				</div> -->
+
+					<!-- 				<div class="form-group col-md-7"> -->
+					<!-- 					<label>Sobrenome:</label>  -->
+					<!-- 					<input type="text" class="form-control" th:field="*{sobrenome}"> -->
+					<!-- 					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('sobrenome')}"> -->
+					<!-- 						<label th:errors="*{sobrenome}" class="validation-message"></label> -->
+					<!-- 					</div> -->
+					<!-- 				</div> -->
+
+					<!-- 			</div> -->
+
+					<!-- 			<div class="row"> -->
+
+					<!-- 				<div class="form-group col-md-7"> -->
+					<!-- 					<label>E-mail:</label>  -->
+					<!-- 					<input type="text" class="form-control" th:field="*{email}"> -->
+					<!-- 					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}"> -->
+					<!-- 						<label th:errors="*{email}" class="validation-message"></label> -->
+					<!-- 					</div> -->
+					<!-- 				</div> -->
+					<!-- 			</div> -->
+
+					<!-- 			<div class="row"> -->
+					<!-- 				<div class="form-group col-md-5"> -->
+					<!-- 					<label>Senha:</label>  -->
+					<!-- 					<input type="password" class="form-control" th:field="*{senha}"> -->
+					<!-- 					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('senha')}"> -->
+					<!-- 						<label th:errors="*{senha}" class="validation-message"></label> -->
+					<!-- 					</div> -->
+					<!-- 				</div> -->
+
+					<!-- 			</div> -->
+
+					<!-- 			<button type="submit" class="btn btn-primary">Salvar</button> -->
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

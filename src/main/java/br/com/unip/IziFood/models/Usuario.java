@@ -39,7 +39,6 @@ public class Usuario {
 	
 	@Column(name = "senha", nullable = false, length = 20)
 	@NotNull(message = "A senha é obrigatória!")
-	@Length(min = 8, max = 20, message = "A senha deve conter entre 8 a 20 caracteres!")
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario")
@@ -50,6 +49,22 @@ public class Usuario {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
+	public List<Comentario> getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(List<Comentario> comentario) {
+		this.comentario = comentario;
 	}
 
 	public void setNome(String nome) {
