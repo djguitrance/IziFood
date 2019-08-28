@@ -1,5 +1,6 @@
 package br.com.unip.IziFood.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +36,9 @@ public class ContaController {
 	@PostMapping("/registration")
 	public ModelAndView salvar(@Valid Usuario usuario, BindingResult result) {
 		ModelAndView mv = new ModelAndView();
-		Usuario usr = serviceUsuario.encontrarPorEmail(usuario.getEmail());
+		Usuario usr = serviceUsuario.encontrarPorUsername(usuario.getUsername());
 		if (usr != null) {
-			result.rejectValue("email", "", "Usuário já cadastrado");
+			result.rejectValue("username", "", "Usuário já cadastrado");
 		}
 		if (result.hasErrors()) {
 			mv.setViewName("conta/registrar");

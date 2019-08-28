@@ -16,8 +16,8 @@ public class ServiceUsuario {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	public Usuario encontrarPorEmail(String email) {
-		return repUsuario.findByEmail(email);
+	public Usuario encontrarPorUsername(String Username) {
+		return repUsuario.findByUsername(Username);
 	}
 	
 	public void salvar(Usuario usuario) {

@@ -71,16 +71,27 @@ h1 {
 }
 
 .searchNav {
-	width: 800px !important
+	width: 88% !important;
+}
+
+.divNav{
+	margin-left:2%;
 }
 
 .logo {
-	margin-left: 20px;
-	margin-right: 50px;
+	margin-left: 10%;
 }
 
-.divlogin{
-	margin-left: 70px;
+.formNav{
+	width:75%;
+	padding-left:3%;
+}
+
+.divLogin{
+	display: inline !important;
+	float: right !important;
+	width: 1%;
+	margin-left: 2% !important;
 }
 
 /* ******* MENU ********* */

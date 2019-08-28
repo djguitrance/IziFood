@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http:/www.thymeleaf.org">
+<html xmlns:th="http:/www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -11,15 +12,25 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom"
 		th:fragment="cabecalho">
 		<a href="/home"><img src="../img/transp_IziFood6.png" class="navbar-brand logo"/></a>
-		<form class="form-inline">
+		<form class="form-inline formNav">
 			<input class="form-control mr-sm-2 searchNav" type="search" placeholder="Pesquisar">
 			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
 		</form>
-		<div th:if="${session.isEmpty()}">
-			<div class="divlogin"><a href="/login">Entre </a> | <a href="/registration"> Cadastre-se</a> </div>
+		
+		<div sec:authorize="isAuthenticated()" class="divNav">
+			<div class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+					role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+					th:text="${#authentication.name}"></a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          			<a class="dropdown-item" href="/minhaConta">Minha conta</a>
+          			<a class="dropdown-item" href="/logout">Sair</a>
+				</div>
+			</div>
 		</div>
-		<div th:unless="${session.isEmpty()}">
-			<div class="divlogin"><a href="/logout">Sair </a></div>
+		
+		<div sec:authorize="!isAuthenticated()" class="divNav">
+			<a href="/login">Entre </a> | <a href="/registration"> Cadastre-se</a>
 		</div>
 	</nav>
 

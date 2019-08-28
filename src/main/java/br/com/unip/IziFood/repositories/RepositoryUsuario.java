@@ -7,5 +7,6 @@ import br.com.unip.IziFood.models.Usuario;
 public interface RepositoryUsuario extends JpaRepository<Usuario, Long>{
 
 	Usuario findByEmail(String email);
+	Usuario findByUsername(String username);
 
 }
