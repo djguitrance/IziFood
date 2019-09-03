@@ -25,4 +25,8 @@ public class ServiceUsuario {
 		repUsuario.save(usuario);
 	}
 	
+	public Usuario getOne(Long id) {
+		return repUsuario.getOne(id);
+	}
+	
 }

@@ -39,9 +39,10 @@ h1 {
 	color: black !important;
 }
 
-.card-login {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
+.card-centralizado {
+    margin: 0 auto;
+    float: none; 
+    color: black;
 }
 
 /* ******* Registro ********* */
@@ -94,6 +95,10 @@ h1 {
 	margin-left: 2% !important;
 }
 
+.nav-link{
+	color: white !important;
+}
+
 /* ******* MENU ********* */
 
 
@@ -136,5 +141,22 @@ h1 {
 
 .card-style{
 	color: black !important;
-	margin-left: 15px;
+
+}
+
+/* ************** Minha conta ***************** */
+
+.divConta {
+	margin: 0 auto;
+    float: none;
+    border: 1px solid;
+    width: 60%;
+    height: 400px !important;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+
+h3{
+	font-family: 'Indie Flower', cursive;
 }

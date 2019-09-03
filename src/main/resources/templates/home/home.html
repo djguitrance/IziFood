@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
 <meta charset="UTF-8">
 <title>IziFood</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="css/estilo.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
@@ -32,10 +34,13 @@
 			<button type="submit" class="btn btn-primary" id="aplica" onclick="checar()" disabled>Pesquisar</button>
 			</form>
 			
+<!-- 			<input type="text" id="ingName" name="term"> -->
+			
 		</div>
 	</div>
 
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	
 	<script>
@@ -52,7 +57,11 @@
 	   }
 	}
 	
-	
+// 	$(document).ready(function() {
+// 		$('#ingName').autocomplete({
+// 			source : "search"
+// 		});
+// 	});
 	
 	$(document).ready(function(){
 		  $("#myInput").on("keyup", function() {

@@ -1,20 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
 <meta charset="UTF-8">
 <title>IziFood</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<link href="../css/estilo.css" rel="stylesheet" />
+<link href="/css/estilo.css" rel="stylesheet" />
+<link
+	href="https:/fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div id="body">
 		<div class="container principal">
-		
-		
-		
-		
-		
-		
+
+			<div class="card text-center card-centralizado col-sm-7" th:object="${usuario}">
+				<h3 class="card-header">Meus dados:</h3>
+				<div class="card-body text-left">
+					<div class="row">
+						<div class="col-sm-6">
+							<span>Nome: </span><span th:text="*{nome}"></span>
+						</div>
+						<div class="col-sm-6">
+							<span>Sobrenome: </span><span th:text="*{sobrenome}"></span>
+						</div>
+					</div>
+					</br>
+					<div class="row col-sm-12">
+						<div><span>Email: </span><span th:text="*{email}"></span></div>
+					</div>
+					</br>
+					<div class="row col-sm-12" >
+						<div><span>Nome de usuário: </span><span th:text="*{username}"></span></div>
+					</div>
+					</br>
+					<div class="row col-sm-12" >
+						<div><a th:href="@{/usuario/alterar/{id}(id=${usuario.id})}">Editar dados pessoais</a></div>
+					</div>
+					</br>
+					<div class="row col-sm-12" >
+						<div><a href="#">Alterar senha</a></div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 

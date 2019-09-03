@@ -32,7 +32,7 @@ public class Usuario {
 	@Length(min = 3, max = 100, message = "O sobrenome deve conter entre 3 a 100 caracteres!")
 	private String sobrenome;
 	
-	@Column(name = "email", nullable = false, length = 200, unique=true)
+	@Column(name = "email", nullable = false, length = 200)
 	@NotNull(message = "O e-mail é obrigatório!")
 	@Length(min = 5, max = 200, message = "O e-mail deve conter entre 5 e 200 caracteres!")
 	private String email;
@@ -41,7 +41,7 @@ public class Usuario {
 	@NotNull(message = "A senha é obrigatória!")
 	private String senha;
 	
-	@Column(name = "username", nullable = false, length = 20, unique=true)
+	@Column(name = "username", nullable = false, length = 20)
 	@NotNull(message = "O nome de usuário é obrigatório!")
 	@Length(max = 20, message = "O usuário deve conter entre 5 à 20 caracteres!")
 	private String username;
@@ -102,6 +102,10 @@ public class Usuario {
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
