@@ -24,19 +24,22 @@ public class ReceitasController {
 	@Autowired
 	private RepositoryIngrediente repIngrediente;
 
+	@PostMapping("/buscar")
+	public ModelAndView buscar(@RequestParam String buscar) {
+		ModelAndView mv = new ModelAndView("receitas/listar");
+		mv.addObject("receitas", repReceita.search(buscar));
+		return mv;
+		
+	}
+	
 	//Busca receitas a partir de uma lista de ingredientes
 	@PostMapping("/listar")
 	public ModelAndView listar(@RequestParam List<Long> IdIngredientes) {
-		
-		List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
-		
-		for (Long ingId : IdIngredientes) {
-			Ingrediente ingrediente = repIngrediente.getOne(ingId);
-			ingredientes.add(ingrediente);
-		}
-		
+
+//		List<Ingrediente> ingredientes = repIngrediente.findAllById(IdIngredientes);
+			
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("receitas", repReceita.findAllByIngredientes(ingredientes));
+		mv.addObject("receitas", repReceita.buscaReceitas(IdIngredientes));
 		mv.setViewName("receitas/listar");
 		return mv;
 	}

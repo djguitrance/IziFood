@@ -22,7 +22,6 @@ public class HomeController {
 	//Página inicial - carrega a lista de ingredientes.
 	@GetMapping("/")
 	public ModelAndView home(HttpServletRequest request) {
-		System.out.println(request.getServletContext().getRealPath(""));
 		ModelAndView mv = new ModelAndView();
 		List<Ingrediente> ingredientes = repIngrediente.findByOrderByNomeAsc();
 		mv.addObject("ingredientes", ingredientes);

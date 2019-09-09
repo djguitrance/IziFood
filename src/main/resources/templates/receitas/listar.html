@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
 <meta charset="UTF-8">
 <title>IziFood</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
@@ -11,18 +10,26 @@
 	<div id="body">
 		<div class="container principal">
 
-			<div th:each="receita: ${receitas}">
-				<div class="row">
-					<div class="card card-style" style="width: 18rem;">
+				<div class="row" th:each="receita : ${receitas}">
+					<div class="card card-style col-sm-3">
 						<div class="card-body">
 							<h5 class="card-title" th:text="${receita.nome}"></h5>
 							<p class="card-text" th:text="${receita.preparo}"></p>
-<!-- 							<a href="#" class="btn btn-primary">Visitar</a> -->
+ 							<a href="#" class="btn btn-primary">Veja mais</a>
 						</div>
 					</div>
 				</div>
-			</div>
 
+
+<!-- 				<div class="row" th:each="receita,row : ${receitas}" th:with="numList=${#strings.listSplit('2,1,0', ',')}" th:if="${row.count} % 3 == 0"> -->
+<!-- 					<div class="card card-style col-sm-3" th:each="num : ${numList}" th:with="recIndex=(${row.index} - ${num})"> -->
+<!-- 						<div class="card-body"> -->
+<!-- 							<h5 class="card-title" th:text="${receitas[numList].nome}"></h5> -->
+<!-- 							<p class="card-text" th:text="test"></p> -->
+<!--  							<a href="#" class="btn btn-primary">Veja mais</a> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 		</div>
 	</div>
