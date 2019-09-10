@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.unip.IziFood.models.Usuario;
+import br.com.unip.IziFood.repositories.RepositoryReceita;
 import br.com.unip.IziFood.repositories.RepositoryUsuario;
 import br.com.unip.IziFood.services.ServiceUsuario;
 
@@ -26,6 +28,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private RepositoryUsuario repUsuario;
+	
+	@Autowired
+	private RepositoryReceita repReceita;
 	
 	@GetMapping("/minhaConta")
 	public ModelAndView minhaConta(HttpServletRequest request) {
@@ -46,6 +51,10 @@ public class UsuarioController {
 	@PostMapping("/alterar")
 	public ModelAndView alterar(@Valid Usuario usuario, BindingResult result) {
 		ModelAndView mv = new ModelAndView();
+		Usuario usr = serviceUsuario.encontrarPorEmail(usuario.getEmail());
+		if (usr != null) {
+			result.rejectValue("email", "", "E-mail já cadastrado");
+		}
 		if (result.hasErrors()) {
 			System.out.println(result.getAllErrors());
 			mv.setViewName("usuario/editarConta");
@@ -55,6 +64,37 @@ public class UsuarioController {
 			repUsuario.save(usuario);
 		}
 		
+		return mv;
+	}
+	
+	@GetMapping("/alterarSenha/{id}")
+	public String alterarSenha(@PathVariable("id") Long id, Model model) {
+		Usuario usuario = repUsuario.getOne(id);
+		model.addAttribute("usuario", usuario);
+		return "usuario/editarSenha";
+	}
+	
+	@PostMapping("/alterarSenha")
+	public ModelAndView alterarSenha(@Valid Usuario usuario, @RequestParam String senhaAtual, @RequestParam String senhaNova, BindingResult result ) {
+		ModelAndView mv = new ModelAndView();
+		if (!serviceUsuario.corresponde(senhaAtual, usuario.getSenha())) {
+			mv.setViewName("usuario/editarSenha");
+			mv.addObject(usuario);
+		}else {
+			mv.setViewName("redirect:/usuario/minhaConta");
+			serviceUsuario.salvarNovaSenha(usuario, senhaNova);
+		}
+		
+		return mv;
+	}
+	
+	@GetMapping("/minhasReceitas")
+	public ModelAndView minhasReceitas(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		String username = request.getUserPrincipal().getName();
+		Usuario usuario = serviceUsuario.encontrarPorUsername(username);
+		mv.addObject("receitas", repReceita.findAllByUsuario(usuario));
+		mv.setViewName("receitas/listar");
 		return mv;
 	}
 }

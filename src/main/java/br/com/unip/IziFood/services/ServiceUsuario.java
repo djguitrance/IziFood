@@ -20,13 +20,30 @@ public class ServiceUsuario {
 		return repUsuario.findByUsername(Username);
 	}
 	
+	public Usuario encontrarPorEmail(String email) {
+		return repUsuario.findByEmail(email);
+	}
+	
 	public void salvar(Usuario usuario) {
 		usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 		repUsuario.save(usuario);
 	}
 	
+	public void salvarNovaSenha(Usuario usuario, String novaSenha) {
+		usuario.setSenha(passwordEncoder.encode(novaSenha));
+		repUsuario.save(usuario);
+	}
+	
 	public Usuario getOne(Long id) {
 		return repUsuario.getOne(id);
+	}
+	
+	public boolean corresponde(String rawPassword, String encodedPassword) {
+		if (passwordEncoder.matches(rawPassword, encodedPassword)) {
+		    return true;
+		}
+		
+		return false;
 	}
 	
 }

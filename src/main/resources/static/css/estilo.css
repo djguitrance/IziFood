@@ -1,7 +1,6 @@
 body {
 	background-image: url('../img/vegetables_2977888_1280.jpg');
 	background-repeat: no-repeat;
-
 	background-attachment: fixed;
 	height: 100%;
 	width: 100%;
@@ -9,18 +8,15 @@ body {
 
 h1 {
 	font-family: 'Indie Flower', cursive;
-
-	margin-bottom: -30px;
+	margin-top: -1%;
 }
 
 #body {
-
 	color: white;
-
 }
 
 .principal {
-	margin-top: 5%;
+	margin-top: 7%;
 }
 
 /* ******* Login ********* */
@@ -56,6 +52,7 @@ h1 {
 
 .tituloRegist{
 	text-align:center;
+	margin-top: -4%;
 }
 
 /* ******* NAVBAR ********* */
@@ -102,7 +99,7 @@ h1 {
 	border-radius: 5px;
 	height: 450px;
 	width: 500px;
-	margin-top: 4%;
+
 	margin-bottom: 10px;
 	overflow: auto;
 	background-color: rgba(1, 1, 1, 0.8);

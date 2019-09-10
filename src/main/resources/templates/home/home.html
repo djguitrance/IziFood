@@ -19,11 +19,11 @@
 			<div class="row">
 				<div class="menu col-md-6">
 					<input type="text" id="myInput" class="form-control pesquisar" placeholder="Pesquisar ..">
-					<form method="POST" action="/receitas/listar">
+					<form method="POST" action="/receitas/buscar">
 						<div class="form-group" th:each="ingrediente: ${ingredientes}">
 							<ul id="myList">
 								<li>
-									<input class="form-check-input" type="checkbox" name="IdIngredientes" th:value="${ingrediente.id}" th:id="${ingrediente.nome}"> 
+									<input class="form-check-input" type="checkbox" th:name="IdIngredientes" th:value="${ingrediente.id}" th:id="${ingrediente.nome}"> 
 									<label class="form-check-label" th:for="${ingrediente.nome}" th:text="${ingrediente.nome}"></label>
 								</li>
 							</ul>

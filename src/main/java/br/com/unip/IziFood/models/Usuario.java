@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @Table(name = "usuario")
@@ -32,7 +33,7 @@ public class Usuario {
 	@Length(min = 3, max = 100, message = "O sobrenome deve conter entre 3 a 100 caracteres!")
 	private String sobrenome;
 	
-	@Column(name = "email", nullable = false, length = 200)
+	@Column(name = "email", nullable = false, length = 200, unique=true)
 	@NotNull(message = "O e-mail é obrigatório!")
 	@Length(min = 5, max = 200, message = "O e-mail deve conter entre 5 e 200 caracteres!")
 	private String email;

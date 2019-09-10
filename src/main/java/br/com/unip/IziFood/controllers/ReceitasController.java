@@ -24,7 +24,7 @@ public class ReceitasController {
 	@Autowired
 	private RepositoryIngrediente repIngrediente;
 
-	@PostMapping("/buscar")
+	@PostMapping("/pesquisar")
 	public ModelAndView buscar(@RequestParam String buscar) {
 		ModelAndView mv = new ModelAndView("receitas/listar");
 		mv.addObject("receitas", repReceita.search(buscar));
@@ -33,8 +33,8 @@ public class ReceitasController {
 	}
 	
 	//Busca receitas a partir de uma lista de ingredientes
-	@PostMapping("/listar")
-	public ModelAndView listar(@RequestParam List<Long> IdIngredientes) {
+	@PostMapping("/buscar")
+	public ModelAndView buscar(@RequestParam List<Long> IdIngredientes) {
 
 //		List<Ingrediente> ingredientes = repIngrediente.findAllById(IdIngredientes);
 			
