@@ -19,6 +19,51 @@ h1 {
 	margin-top: 7%;
 }
 
+ul {
+ 	list-style-type: none;
+}
+
+/* input[type="checkbox"] { */
+/*     display:none; */
+/* } */
+
+/* input:checked + label::after{ */
+/* 	background-color: #a2a2a2; */
+/* } */
+
+/* .form-check-label-style{ */
+/* 	font-size:20px; */
+/* 	margin-botton:10px; */
+/* 	padding-left:35px; */
+/* 	cursor: pointer; */
+/* 	display: block; */
+/* 	position: relative; */
+/* 	left: -70px; */
+/* } */
+
+/* .form-check-label-style::before{ */
+/* 	content: ""; */
+/* 	width: 24px; */
+/* 	height: 24px; */
+/* 	border: solid 1px #a2a2a2; */
+/* 	display: inline-block; */
+/* 	position: absolute; */
+/* 	left: 520px; */
+/* 	top: 0px; */
+/* } */
+
+/* .form-check-label-style::after{ */
+/* 	content: ""; */
+/* 	width: 18px; */
+/* 	height: 18px; */
+/* 	border: solid 1px #a2a2a2; */
+/* 	display: inline-block; */
+/* 	box-sizing: border-box; */
+/* 	position: absolute; */
+/* 	left: 523px; */
+/* 	top: 3px; */
+/* } */
+
 /* ******* Login ********* */
 
 .logologin{
