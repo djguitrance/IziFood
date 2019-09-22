@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @Table(name = "usuario")
@@ -25,21 +24,22 @@ public class Usuario {
 	
 	@Column(name = "nome", nullable = false, length = 50)
 	@NotNull(message = "O nome é obrigatório!")
-	@Length(min = 3, max = 200, message = "O nome deve conter entre 3 a 50 caracteres!")
+	@Length(min = 3, max = 50, message = "O nome deve conter entre 3 a 50 caracteres!")
 	private String nome;
 	
-	@Column(name = "sobrenome", nullable = false, length = 100)
+	@Column(name = "sobrenome", nullable = false, length = 150)
 	@NotNull(message = "O sobrenome é obrigatório!")
-	@Length(min = 3, max = 100, message = "O sobrenome deve conter entre 3 a 100 caracteres!")
+	@Length(min = 3, max = 150, message = "O sobrenome deve conter entre 3 a 150 caracteres!")
 	private String sobrenome;
 	
-	@Column(name = "email", nullable = false, length = 200, unique=true)
+	@Column(name = "email", nullable = false, length = 50, unique=true)
 	@NotNull(message = "O e-mail é obrigatório!")
-	@Length(min = 5, max = 200, message = "O e-mail deve conter entre 5 e 200 caracteres!")
+	@Length(min = 5, max = 50, message = "O e-mail deve conter entre 5 e 50 caracteres!")
 	private String email;
 	
-	@Column(name = "senha", nullable = false, length = 20)
+	@Column(name = "senha", nullable = false, length = 12)
 	@NotNull(message = "A senha é obrigatória!")
+	@Length(min = 4, max = 12, message = "A senha deve conter entre 4 a 12 caracteres")
 	private String senha;
 	
 	@Column(name = "username", nullable = false, length = 20)

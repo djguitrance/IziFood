@@ -34,9 +34,4 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
-//	@GetMapping("/search")
-//	@ResponseBody
-//	public List<String> search(HttpServletRequest request) {
-//		return repIngrediente.search(request.getParameter("term"));
-//	}
 }

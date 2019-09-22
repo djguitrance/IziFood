@@ -1,7 +1,8 @@
 body {
 	background-image: url('../img/vegetables_2977888_1280.jpg');
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+
+	background-size: cover !important;
 	height: 100%;
 	width: 100%;
 }
@@ -144,7 +145,6 @@ ul {
 	border-radius: 5px;
 	height: 450px;
 	width: 500px;
-
 	margin-bottom: 10px;
 	overflow: auto;
 	background-color: rgba(1, 1, 1, 0.8);
@@ -179,6 +179,10 @@ ul {
 	color: black !important;
 	margin-left: 6%;
 	
+}
+
+.card-style2{
+	color: black !important;
 }
 
 /* ************** Minha conta ***************** */

@@ -14,8 +14,7 @@
 					<div class="card card-style col-sm-3">
 						<div class="card-body">
 							<h5 class="card-title" th:text="${receita.nome}"></h5>
-							<p class="card-text" th:text="${receita.preparo}"></p>
-							<a href="#" class="btn btn-primary">Veja mais</a>
+							<a th:href="@{/receitas/exibir/{id}(id=${receita.id})}" class="btn btn-primary">Veja mais</a>
 						</div>
 					</div>
 				</div>

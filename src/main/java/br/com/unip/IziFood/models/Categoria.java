@@ -1,36 +1,36 @@
 package br.com.unip.IziFood.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ingrediente")
-public class Ingrediente {
+@Table(name = "categoria")
+public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false, length = 45)
 	private String nome;
 	
-	@Column(name = "caloria")
-	private Integer calorias;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "categoria_id")
-	private Categoria categoria;
+	@OneToMany(mappedBy = "categoria")
+	private List<Ingrediente> ingredientes;
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -40,15 +40,13 @@ public class Ingrediente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		Ingrediente ingrediente = (Ingrediente) obj;
-		if (ingrediente.getNome() == this.nome) {
-			return true;
-		}
-		
-		return false;
+
+	public List<Ingrediente> getIngredientes() {
+		return ingredientes;
+	}
+
+	public void setIngredientes(List<Ingrediente> ingredientes) {
+		this.ingredientes = ingredientes;
 	}
 	
 	
