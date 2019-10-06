@@ -22,13 +22,6 @@ public class Ingrediente {
 	@Column(name = "nome")
 	private String nome;
 	
-	@Column(name = "caloria")
-	private Integer calorias;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "categoria_id")
-	private Categoria categoria;
-
 	public Long getId() {
 		return id;
 	}
@@ -41,6 +34,10 @@ public class Ingrediente {
 		this.nome = nome;
 	}
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		Ingrediente ingrediente = (Ingrediente) obj;
@@ -51,5 +48,8 @@ public class Ingrediente {
 		return false;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.nome;
+	}
 }

@@ -22,7 +22,7 @@
 					<form method="POST" action="/receitas/buscar">
 						<div class="form-group" th:each="ingrediente: ${ingredientes}">
 							<ul id="myList">
-								<li>
+								<li class="item">
 									<input class="form-check-input" type="checkbox" th:name="IdIngredientes" th:value="${ingrediente.id}" th:id="${ingrediente.nome}"> 
 									<label class="form-check-label form-check-label-style" th:for="${ingrediente.nome}" th:text="${ingrediente.nome}"><span></span></label>
 								</li>
@@ -33,7 +33,6 @@
 			</div>
 			<button type="submit" class="btn btn-primary" id="aplica" onclick="checar()" disabled>Pesquisar</button>
 			</form>
-			
 <!-- 			<input type="text" id="ingName" name="term"> -->
 			
 		</div>

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.unip.IziFood.models.Categoria;
 import br.com.unip.IziFood.models.Receita;
+import br.com.unip.IziFood.repositories.RepositoryCategoria;
 import br.com.unip.IziFood.repositories.RepositoryIngrediente;
 import br.com.unip.IziFood.repositories.RepositoryReceita;
 
@@ -25,6 +27,9 @@ public class ReceitasController {
 	
 	@Autowired
 	private RepositoryIngrediente repIngrediente;
+	
+	@Autowired
+	private RepositoryCategoria repCategoria;
 
 	@PostMapping("/pesquisar")
 	public ModelAndView buscar(@RequestParam String buscar) {
@@ -49,5 +54,13 @@ public class ReceitasController {
 		Receita receita = repReceita.getOne(id);
 		model.addAttribute("receita", receita);
 		return "receitas/exibir";
+	}
+	
+	@GetMapping("/buscarPorCategoria/{id}")
+	public ModelAndView buscarPorCategoria(@PathVariable("id") Long id) {
+		ModelAndView mv = new ModelAndView("receitas/listar");
+		Categoria categoria = repCategoria.getOne(id);
+		mv.addObject("receitas", repReceita.findAllByCategoria(categoria) );
+		return mv;
 	}
 }

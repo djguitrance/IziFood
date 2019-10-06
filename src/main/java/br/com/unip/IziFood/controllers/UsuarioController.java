@@ -51,10 +51,6 @@ public class UsuarioController {
 	@PostMapping("/alterar")
 	public ModelAndView alterar(@Valid Usuario usuario, BindingResult result) {
 		ModelAndView mv = new ModelAndView();
-		Usuario usr = serviceUsuario.encontrarPorEmail(usuario.getEmail());
-		if (usr != null) {
-			result.rejectValue("email", "", "E-mail já cadastrado");
-		}
 		if (result.hasErrors()) {
 			System.out.println(result.getAllErrors());
 			mv.setViewName("usuario/editarConta");
@@ -94,7 +90,7 @@ public class UsuarioController {
 		String username = request.getUserPrincipal().getName();
 		Usuario usuario = serviceUsuario.encontrarPorUsername(username);
 		mv.addObject("receitas", repReceita.findAllByUsuario(usuario));
-		mv.setViewName("receitas/listar");
+		mv.setViewName("usuario/minhasReceitas");
 		return mv;
 	}
 }

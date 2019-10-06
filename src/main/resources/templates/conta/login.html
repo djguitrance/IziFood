@@ -10,33 +10,38 @@
 <body>
 	<div id="body">
 		<div class="container principal">
+			<div>
 			
+			
+			
+			
+			</div>
 			<div class="card card-centralizado col-sm-4 text-center">
 			<div class="card-title">
 				<img src="../img/IziFood7.jpg" class="logologin">
-				</div>
+			</div>
 				<div class="card-body">
-				<form action="/login" method="POST" class="form-signin">
-					<div class="form-group">
+					<form action="/login" method="POST" class="form-signin">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Nome de usuário" name="username">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="form-group"> 
-							<input type="password" class="form-control" placeholder="Senha" name="senha">
-						</div>
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Entrar</button>
-						<div class="alert alert-danger" role="alert" th:if="${param.error}">
-								Não foi possível fazer o login!
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Nome de usuário" name="username">
 							</div>
-					</div>
-					<div class="form-group">
-						<span class="textologin">Não possui conta? <a href="/registration">Cadastre aqui</a></span>
-					</div>
-				</form>
+						</div>
+						<div class="form-group">
+							<div class="form-group"> 
+								<input type="password" class="form-control" placeholder="Senha" name="senha">
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Entrar</button>
+							<div class="alert alert-danger" role="alert" th:if="${param.error}">
+									Não foi possível fazer o login!
+								</div>
+						</div>
+						<div class="form-group">
+							<span class="textologin">Não possui conta? <a href="/registration">Cadastre aqui</a></span>
+						</div>
+					</form>
 				</div>
 			</div>
 			

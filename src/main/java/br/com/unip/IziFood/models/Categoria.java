@@ -1,13 +1,10 @@
 package br.com.unip.IziFood.models;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,9 +18,6 @@ public class Categoria {
 	
 	@Column(name = "nome", nullable = false, length = 45)
 	private String nome;
-	
-	@OneToMany(mappedBy = "categoria")
-	private List<Ingrediente> ingredientes;
 
 	public Long getId() {
 		return id;
@@ -39,14 +33,6 @@ public class Categoria {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public List<Ingrediente> getIngredientes() {
-		return ingredientes;
-	}
-
-	public void setIngredientes(List<Ingrediente> ingredientes) {
-		this.ingredientes = ingredientes;
 	}
 	
 	

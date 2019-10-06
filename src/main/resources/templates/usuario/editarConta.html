@@ -30,13 +30,9 @@
 						<label th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}" class="validation-message"></label>
 					</div>
 					
-					<div class="form-group">
-						<label for="inputEmail">Email</label>
-						<input type="text" class="form-control" id="inputEmail" placeholder="Email"  th:field="*{email}">
-						<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="validation-message"></label>
-					</div>
 					<input type="hidden" th:field="*{senha}">
 					<input type="hidden" th:field="*{username}">
+					<input type="hidden" th:field="*{email}">
 					<button type="submit" class="btn btn-primary">Salvar</button>
 					
 				</form>

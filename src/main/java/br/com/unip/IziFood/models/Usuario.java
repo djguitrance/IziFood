@@ -39,7 +39,6 @@ public class Usuario {
 	
 	@Column(name = "senha", nullable = false, length = 12)
 	@NotNull(message = "A senha é obrigatória!")
-	@Length(min = 4, max = 12, message = "A senha deve conter entre 4 a 12 caracteres")
 	private String senha;
 	
 	@Column(name = "username", nullable = false, length = 20)
@@ -117,6 +116,9 @@ public class Usuario {
 		this.username = username;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.username;
+	}
 	
 }

@@ -10,15 +10,52 @@
 	<div id="body">
 		<div class="container principal">
 		
-		<div class="card card-style2" th:object="${receita}">
+		<div class="card card-style-exibir text-center" th:object="${receita}">
 			<div class="card-header">
-				<h3 th:text="*{nome}"></h3>
+				<h2 th:text="*{nome}"></h2>
+				Criado por: <span th:text="${receita.usuario}"></span>
 			</div>
-			<div class="card-body">
-				<p th:text="*{preparo}"></p>
+			<div class="card-body card-body-style">
+				<img th:src="@{/img/{name}(name=${receita.imagem})}" class="card-img">
+				<div class=" text-left">
+					<h5 class="text-left">Ingredientes:</h5>
+					<ul class="text-left lista-ingredientes" th:each="ingrediente : ${receita.ingredientes}">
+						<li class="text-left" th:text="${ingrediente}"></li>
+					</ul>
+				</div>
+				<div class="descricao text-left">
+					<h5>Preparo:</h5>
+					<p th:text="*{preparo}"></p>
+				</div>
 			</div>
+			
+			<div th:if="${#lists.isEmpty({receita.comentario})}">
+				<h3>Nenhuma receita cadastrada =(</h3>
+			</div>
+			
+			<h3>Comentários:</h3>
+			<ul class="list-unstyled text-left" th:each="comentario : ${receita.comentario}">
+  				<li class="media">
+    				<div class="media-body">
+      					<h5 class="mt-0 mb-1" th:text="${comentario.usuario}"></h5>
+      					<div th:text=${comentario.descricao}></div>
+    				</div>
+  				</li>
+  			</ul>
+			
+			<div sec:authorize="isAuthenticated()">
+				<form action="/comentario/adicionar" method="POST">
+					<div class="text-center">
+    					<label>Faça um comentário:</label>
+    					<textarea th:name="comentario" rows="3" style="width:95%"></textarea>
+    					<input type="hidden" th:name="idReceita" th:value="${receita.id}">
+  					</div>
+  					<input class="btn btn-primary" type="submit"/>
+				</form>
+			</div>
+			<br><br>
 		</div>
-		
+		<br><br>
 		</div>
 	</div>
 

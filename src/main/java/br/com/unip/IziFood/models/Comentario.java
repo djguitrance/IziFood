@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -33,11 +33,11 @@ public class Comentario {
 	private LocalDateTime data = LocalDateTime.now();
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinTable(name="usuario_id")
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinTable(name="receita_id")
+	@JoinColumn(name="receita_id")
 	private Receita receita;
 
 	public String getDescricao() {

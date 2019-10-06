@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <title>IziFood</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<link href="/css/estilo.css" rel="stylesheet" />
+<link href="../css/estilo.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,20 +12,19 @@
 		<div class="container principal">
 		
 			<div th:if="${#lists.isEmpty(receitas)}" class="text-center">
-				<h1>Nenhuma receita foi encontrada =(</h1>
-				<a href="/home">Voltar</a>
+				<h1>Nenhuma receita cadastrada =(</h1>
+				<a class="btn btn-primary" href="#">Cadastrar nova receita</a>
 			</div>
-			
+		
 			<div class="receitas">
 				<div class="card text-center card-style" th:each="receita : ${receitas}">
-			    	<img th:src="@{/img/{name}(name=${receita.imagem})}" class="card-img-top card-img">
+			    	<img th:src="@{/img/{name}(name=${receita.imagem})}" class="card-img-top">
 			    	<div class="card-body">
 			        	<h5 class="card-title" th:text="${receita.nome}"></h5>
 			        	<a th:href="@{/receitas/exibir/{id}(id=${receita.id})}" class="btn btn-primary">Veja mais</a>
   			    	</div>
             	</div>
 			</div>
-			
 
 
 		</div>

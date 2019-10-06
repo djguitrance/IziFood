@@ -45,6 +45,10 @@ public class Receita {
 	
 	@OneToMany(mappedBy = "receita")
 	private List<Comentario> comentario;
+	
+	@ManyToOne
+	@JoinColumn(name="categoria_id")
+	private Categoria categoria;
 
 	public String getImagem() {
 		return imagem;
@@ -88,6 +92,26 @@ public class Receita {
 
 	public Long getId() {
 		return id;
+	}
+
+	public List<Comentario> getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(List<Comentario> comentario) {
+		this.comentario = comentario;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	
