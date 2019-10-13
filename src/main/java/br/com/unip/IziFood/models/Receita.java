@@ -1,6 +1,7 @@
 package br.com.unip.IziFood.models;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class Receita {
 	private String preparo;
 	
 	@ManyToMany
-	@JoinTable(name = "receita_has_ingrediente",
+	@JoinTable(name = "ingrediente_has_receita",
 				joinColumns = @JoinColumn(name = "receita_id"),
 				inverseJoinColumns = @JoinColumn(name = "ingrediente_id"))
 	private List<Ingrediente> ingredientes;

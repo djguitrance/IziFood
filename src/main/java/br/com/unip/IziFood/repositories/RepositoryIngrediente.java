@@ -14,5 +14,8 @@ public interface RepositoryIngrediente extends JpaRepository<Ingrediente, Long>{
 	
 	@Query("SELECT nome FROM Ingrediente where nome like %:keyword%")
 	public List<String> search(@Param("keyword") String keyword);
+	
+	@Query("SELECT distinct i from Ingrediente i where i.id in (:IdIngredientes)")
+	List<Ingrediente> buscarPorId(@Param("IdIngredientes") List<Long> IdIngredientes);
 
 }
