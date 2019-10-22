@@ -54,16 +54,6 @@ public class ReceitasController {
 		
 	}
 	
-//	//Busca receitas a partir de uma lista de ingredientes
-//	@PostMapping("/buscar")
-//	public ModelAndView buscar(@RequestParam List<Long> IdIngredientes) {
-//		System.out.println(IdIngredientes);
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("receitas", repReceita.buscaReceitas(IdIngredientes));
-//		mv.setViewName("receitas/listar");
-//		return mv;
-//	}
-	
 	//Busca receitas a partir de uma lista de ingredientes
 	@PostMapping("/buscar")
 	public ModelAndView buscar(@RequestParam List<Long> IdIngredientes) {
@@ -100,14 +90,17 @@ public class ReceitasController {
 		Receita receita = repReceita.getOne(id);
 		mv.addObject("receita", receita);
 		
-		if (SecurityContextHolder.getContext().getAuthentication().getName() != "anonymousUser") {
-			String username = request.getUserPrincipal().getName();
-			Usuario usuario = serviceUsuario.encontrarPorUsername(username);
-			HistoricoId historicoId = new HistoricoId(usuario.getId());
-			List<Ingrediente> ingredientes = receita.getIngredientes();
-			Historico historico = new Historico(historicoId, ingredientes);
-			repHistorico.save(historico);
-		}
+		
+//		IA ( VER DEPOIS )
+//		
+//		if (SecurityContextHolder.getContext().getAuthentication().getName() != "anonymousUser") {
+//			String username = request.getUserPrincipal().getName();
+//			Usuario usuario = serviceUsuario.encontrarPorUsername(username);
+//			HistoricoId historicoId = new HistoricoId(usuario.getId());
+//			List<Ingrediente> ingredientes = receita.getIngredientes();
+//			Historico historico = new Historico(historicoId, ingredientes);
+//			repHistorico.save(historico);
+//		}
 		
 		
 		return mv;
@@ -118,6 +111,12 @@ public class ReceitasController {
 		ModelAndView mv = new ModelAndView("receitas/listar");
 		Categoria categoria = repCategoria.getOne(id);
 		mv.addObject("receitas", repReceita.findAllByCategoria(categoria) );
+		return mv;
+	}
+	
+	@GetMapping("/novaReceita")
+	public ModelAndView novaReceita() {
+		ModelAndView mv = new ModelAndView("receitas/novaReceita");
 		return mv;
 	}
 }

@@ -78,8 +78,8 @@ ul {
 	width: 88% !important;
 }
 
-.divNav{
-	margin-left:2%;
+.nav-item{
+	margin-right:30px;
 }
 
 .logo {
@@ -89,6 +89,7 @@ ul {
 .formNav{
 	width:75%;
 	padding-left:3%;
+	flex-flow:row;
 }
 
 .divLogin{
@@ -98,14 +99,7 @@ ul {
 
 .nav-link{
 	color: white !important;
-}
-
-.form-inline{
-	flex-flow: row;
-}
-
-.dropdown-menu{
-	margin-right:50px;
+	margin-left:20px;
 }
 
 .navCustom{
@@ -243,6 +237,18 @@ ul {
 	background-color: RBG(255,250,240);
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
+
+.card-nova-receita {
+    margin: 0 auto;
+    margin-top:4%;
+    color: black;
+}
+
+.teeeste{
+	display: flex;
+	justify-content: space-between;
+}
+
 
 /* ************** Minha conta ***************** */
 

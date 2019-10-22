@@ -13,9 +13,13 @@
 		
 			<div th:if="${#lists.isEmpty(receitas)}" class="text-center">
 				<h1>Nenhuma receita cadastrada =(</h1>
-				<a class="btn btn-primary" href="#">Cadastrar nova receita</a>
+				<a class="btn btn-primary" href="/receitas/novaReceita">Cadastrar nova receita</a>
 			</div>
-		
+			<div class="text-center">
+				<h1>Minhas receitas</h1>
+				<a class="btn btn-primary" href="/receitas/novaReceita">Cadastrar nova receita</a>
+			</div>
+			
 			<div class="receitas">
 				<div class="card text-center card-style" th:each="receita : ${receitas}">
 			    	<img th:src="@{/img/{name}(name=${receita.imagem})}" class="card-img-top">
@@ -25,6 +29,7 @@
   			    	</div>
             	</div>
 			</div>
+			
 
 
 		</div>

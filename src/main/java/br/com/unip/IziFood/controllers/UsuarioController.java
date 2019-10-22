@@ -93,4 +93,16 @@ public class UsuarioController {
 		mv.setViewName("usuario/minhasReceitas");
 		return mv;
 	}
+	
+	//Alterar depois ( INTELIGÊNCIA ARTIFICIAL ) //
+	
+	@GetMapping("/sugestoes")
+	public ModelAndView sugestoes(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		String username = request.getUserPrincipal().getName();
+		Usuario usuario = serviceUsuario.encontrarPorUsername(username);
+		mv.addObject("receitas", repReceita.findAllByUsuario(usuario));
+		mv.setViewName("usuario/minhasReceitas");
+		return mv;
+	}
 }
