@@ -1,10 +1,11 @@
 package br.com.unip.IziFood.models;
 
 import java.util.List;
-import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -19,7 +20,7 @@ public class Historico {
 	
 	@ManyToMany
 	@JoinTable(name = "historico_has_ingrediente",
-				joinColumns = {@JoinColumn(name = "historico_usuario_id"), @JoinColumn(name = "historico_dt_hora")},
+				joinColumns = {@JoinColumn(name = "historico_dt_hora"), @JoinColumn(name = "historico_usuario_id")},
 				inverseJoinColumns = {@JoinColumn(name = "ingrediente_id")})
 	private List<Ingrediente> ingredientes;
 	

@@ -91,16 +91,15 @@ public class ReceitasController {
 		mv.addObject("receita", receita);
 		
 		
-//		IA ( VER DEPOIS )
-//		
-//		if (SecurityContextHolder.getContext().getAuthentication().getName() != "anonymousUser") {
-//			String username = request.getUserPrincipal().getName();
-//			Usuario usuario = serviceUsuario.encontrarPorUsername(username);
-//			HistoricoId historicoId = new HistoricoId(usuario.getId());
-//			List<Ingrediente> ingredientes = receita.getIngredientes();
-//			Historico historico = new Historico(historicoId, ingredientes);
-//			repHistorico.save(historico);
-//		}
+		if (SecurityContextHolder.getContext().getAuthentication().getName() != "anonymousUser") {
+			String username = request.getUserPrincipal().getName();
+			Usuario usuario = serviceUsuario.encontrarPorUsername(username);
+			HistoricoId historicoId = new HistoricoId(usuario.getId());
+			List<Ingrediente> ingredientes = receita.getIngredientes();
+			System.out.println(ingredientes);
+			Historico historico = new Historico(historicoId, ingredientes);
+			repHistorico.save(historico);
+		}
 		
 		
 		return mv;

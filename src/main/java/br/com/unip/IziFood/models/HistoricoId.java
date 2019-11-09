@@ -10,12 +10,12 @@ import javax.persistence.Embeddable;
 public class HistoricoId implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	@Column(name = "usuario_id")
-	private Long id;
 	
 	@Column(name = "dt_hora")
 	private LocalDateTime dt_hora = LocalDateTime.now();
+	
+	@Column(name = "usuario_id")
+	private Long id;
 	
 	public HistoricoId() {
 	}
