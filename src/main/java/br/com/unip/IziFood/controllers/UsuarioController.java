@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.unip.IziFood.models.Categoria;
 import br.com.unip.IziFood.models.Usuario;
+import br.com.unip.IziFood.repositories.RepositoryCategoria;
 import br.com.unip.IziFood.repositories.RepositoryReceita;
 import br.com.unip.IziFood.repositories.RepositoryUsuario;
 import br.com.unip.IziFood.services.ServiceUsuario;
@@ -31,6 +34,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private RepositoryReceita repReceita;
+	
+	@Autowired
+	private RepositoryCategoria repCategoria;
 	
 	@GetMapping("/minhaConta")
 	public ModelAndView minhaConta(HttpServletRequest request) {
@@ -98,11 +104,21 @@ public class UsuarioController {
 	
 	@GetMapping("/sugestoes")
 	public ModelAndView sugestoes(HttpServletRequest request) {
+		
 		ModelAndView mv = new ModelAndView();
-		String username = request.getUserPrincipal().getName();
-		Usuario usuario = serviceUsuario.encontrarPorUsername(username);
-		mv.addObject("receitas", repReceita.findAllByUsuario(usuario));
-		mv.setViewName("usuario/minhasReceitas");
+		
+		if (SecurityContextHolder.getContext().getAuthentication().getName().equals("gabriel") ) {
+			mv.addObject("receitas", repReceita.search("bolo"));
+		}
+		
+		if (SecurityContextHolder.getContext().getAuthentication().getName().equals("guilherme")) {
+			Categoria categoria = repCategoria.getOne((long) 6);
+			mv.addObject("receitas", repReceita.findAllByCategoria(categoria));
+		}
+		
+		
+		mv.setViewName("receitas/listar");
+		
 		return mv;
 	}
 }

@@ -15,7 +15,7 @@
 				<h1>Nenhuma receita cadastrada =(</h1>
 				<a class="btn btn-primary" href="/receitas/novaReceita">Cadastrar nova receita</a>
 			</div>
-			<div class="text-center">
+			<div class="text-center"  th:unless="${#lists.isEmpty(receitas)}">
 				<h1>Minhas receitas</h1>
 				<a class="btn btn-primary" href="/receitas/novaReceita">Cadastrar nova receita</a>
 			</div>
